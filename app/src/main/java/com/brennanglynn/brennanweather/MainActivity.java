@@ -14,6 +14,8 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.brennanglynn.brennanweather.weather.Current;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 

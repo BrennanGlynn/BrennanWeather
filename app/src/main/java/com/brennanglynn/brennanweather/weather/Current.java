@@ -1,4 +1,6 @@
-package com.brennanglynn.brennanweather;
+package com.brennanglynn.brennanweather.weather;
+
+import com.brennanglynn.brennanweather.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
