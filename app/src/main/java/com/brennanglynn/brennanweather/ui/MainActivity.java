@@ -1,4 +1,4 @@
-package com.brennanglynn.brennanweather;
+package com.brennanglynn.brennanweather.ui;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -14,8 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.brennanglynn.brennanweather.ui.AlertDialogFragment;
-import com.brennanglynn.brennanweather.ui.ColorWheel;
+import com.brennanglynn.brennanweather.R;
 import com.brennanglynn.brennanweather.weather.Current;
 
 import org.json.JSONException;
