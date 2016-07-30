@@ -33,6 +33,8 @@ public class ColorWheel {
         return Color.parseColor(color);
 
         //This comment is on the master branch
+
+        //This comment is on the BrennanBranch
     }
 
 }
