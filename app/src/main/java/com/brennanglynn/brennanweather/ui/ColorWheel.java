@@ -31,6 +31,8 @@ public class ColorWheel {
         int randomNumber = randomGenerator.nextInt(mColors.length);
         color = mColors[randomNumber];
         return Color.parseColor(color);
+
+        //This comment is on the master branch
     }
 
 }
