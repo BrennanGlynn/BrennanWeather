@@ -14,6 +14,8 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.brennanglynn.brennanweather.ui.AlertDialogFragment;
+import com.brennanglynn.brennanweather.ui.ColorWheel;
 import com.brennanglynn.brennanweather.weather.Current;
 
 import org.json.JSONException;
@@ -116,9 +118,7 @@ public class MainActivity extends AppCompatActivity {
                         } else {
                             alertUserAboutError();
                         }
-                    } catch (IOException e) {
-                        Log.e(TAG, "Exception caught: ", e);
-                    } catch (JSONException e) {
+                    } catch (IOException | JSONException e) {
                         Log.e(TAG, "Exception caught: ", e);
                     }
                 }
@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateDisplay() {
         mTemperatureLabel.setText(mCurrent.getTemperature() + "");
-        mTimeLabel.setText("At " + mCurrent.getFormattedTime() + " it will be");
+        mTimeLabel.setText("At " + mCurrent.getFormattedTime() + " was");
         mHumidityValue.setText(mCurrent.getHumidity() + "");
         mPrecipValue.setText(mCurrent.getPrecipChance() + "%");
         mSummaryLabel.setText(mCurrent.getSummary());

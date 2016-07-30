@@ -1,4 +1,4 @@
-package com.brennanglynn.brennanweather;
+package com.brennanglynn.brennanweather.ui;
 
 import android.graphics.Color;
 
@@ -30,8 +30,7 @@ public class ColorWheel {
         Random randomGenerator = new Random();
         int randomNumber = randomGenerator.nextInt(mColors.length);
         color = mColors[randomNumber];
-        int colorAsInt = Color.parseColor(color);
-        return colorAsInt;
+        return Color.parseColor(color);
     }
 
 }

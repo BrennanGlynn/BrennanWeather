@@ -1,4 +1,4 @@
-package com.brennanglynn.brennanweather;
+package com.brennanglynn.brennanweather.ui;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -16,7 +16,6 @@ public class AlertDialogFragment extends DialogFragment{
                 .setMessage("Could not connect to a network")
                 .setPositiveButton("OK", null);
 
-        AlertDialog dialog = builder.create();
-        return dialog;
+        return builder.create();
     }
 }
