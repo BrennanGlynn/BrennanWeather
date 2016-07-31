@@ -142,12 +142,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateDisplay() {
-        mTemperatureLabel.setText(mForecast.getCurrentForecast().getTemperature() + "");
-        mTimeLabel.setText("At " + mForecast.getCurrentForecast().getFormattedTime() + " the temperature was");
-        mHumidityValue.setText(mForecast.getCurrentForecast().getHumidity() + "");
-        mPrecipValue.setText(mForecast.getCurrentForecast().getPrecipChance() + "%");
-        mSummaryLabel.setText(mForecast.getCurrentForecast().getSummary());
-        Drawable drawable = ResourcesCompat.getDrawable(getResources(), mForecast.getCurrentForecast().getIconId(), null);
+        Current current = mForecast.getCurrentForecast();
+        mTemperatureLabel.setText(current.getTemperature() + "");
+        mTimeLabel.setText("At " + current.getFormattedTime() + " the temperature was");
+        mHumidityValue.setText(current.getHumidity() + "");
+        mPrecipValue.setText(current.getPrecipChance() + "%");
+        mSummaryLabel.setText(current.getSummary());
+        Drawable drawable = ResourcesCompat.getDrawable(getResources(), current.getIconId(), null);
         mIconImageView.setImageDrawable(drawable);
     }
 
