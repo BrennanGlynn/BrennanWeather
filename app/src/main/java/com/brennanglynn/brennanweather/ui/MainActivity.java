@@ -2,6 +2,7 @@ package com.brennanglynn.brennanweather.ui;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v4.content.res.ResourcesCompat;
@@ -68,7 +69,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 getForecast(latitude, longitude);
-                mLayoutBackground.setBackgroundColor(mColorWheel.getColor());
+
+                GradientDrawable gd = new GradientDrawable(
+                        GradientDrawable.Orientation.TOP_BOTTOM,
+                        new int[]{0xFF616261, 0xFF131313});
+                gd.setCornerRadius(0f);
+
+
+                mLayoutBackground.setBackground(gd);
             }
         });
         getForecast(latitude, longitude);
