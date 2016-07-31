@@ -5,5 +5,27 @@ public class Forecast {
     private Hour[] mHourlyForecast;
     private Day[] mDailyForecast;
 
-    //This should only show up in Brennan Branch
+    public Current getCurrentForecast() {
+        return mCurrentForecast;
+    }
+
+    public void setCurrentForecast(Current currentForecast) {
+        mCurrentForecast = currentForecast;
+    }
+
+    public Hour[] getHourlyForecast() {
+        return mHourlyForecast;
+    }
+
+    public void setHourlyForecast(Hour[] hourlyForecast) {
+        mHourlyForecast = hourlyForecast;
+    }
+
+    public Day[] getDailyForecast() {
+        return mDailyForecast;
+    }
+
+    public void setDailyForecast(Day[] dailyForecast) {
+        mDailyForecast = dailyForecast;
+    }
 }

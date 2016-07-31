@@ -16,6 +16,8 @@ import android.widget.TextView;
 
 import com.brennanglynn.brennanweather.R;
 import com.brennanglynn.brennanweather.weather.Current;
+import com.brennanglynn.brennanweather.weather.Day;
+import com.brennanglynn.brennanweather.weather.Forecast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String TAG = MainActivity.class.getSimpleName();
 
-    private Current mCurrent;
+    private Forecast mForecast;
     private ColorWheel mColorWheel;
 
     @BindView(R.id.layoutBackground) RelativeLayout mLayoutBackground;
@@ -107,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
                         String jsonData = response.body().string();
                         Log.v(TAG, jsonData);
                         if (response.isSuccessful()) {
-                            mCurrent = getCurrentDetails(jsonData);
+                            mForecast = parseForecastDetails(jsonData);
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
@@ -126,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
         else {
             alertUserAboutError();
         }
+        Log.i(TAG, forecastUrl);
     }
 
     private void toggleRefresh() {
@@ -139,13 +142,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateDisplay() {
-        mTemperatureLabel.setText(mCurrent.getTemperature() + "");
-        mTimeLabel.setText("At " + mCurrent.getFormattedTime() + " was");
-        mHumidityValue.setText(mCurrent.getHumidity() + "");
-        mPrecipValue.setText(mCurrent.getPrecipChance() + "%");
-        mSummaryLabel.setText(mCurrent.getSummary());
-        Drawable drawable = ResourcesCompat.getDrawable(getResources(), mCurrent.getIconId(), null);
+        mTemperatureLabel.setText(mForecast.getCurrentForecast().getTemperature() + "");
+        mTimeLabel.setText("At " + mForecast.getCurrentForecast().getFormattedTime() + " the temperature was");
+        mHumidityValue.setText(mForecast.getCurrentForecast().getHumidity() + "");
+        mPrecipValue.setText(mForecast.getCurrentForecast().getPrecipChance() + "%");
+        mSummaryLabel.setText(mForecast.getCurrentForecast().getSummary());
+        Drawable drawable = ResourcesCompat.getDrawable(getResources(), mForecast.getCurrentForecast().getIconId(), null);
         mIconImageView.setImageDrawable(drawable);
+    }
+
+    private Forecast parseForecastDetails(String jsonData) throws JSONException {
+        Forecast forecast = new Forecast();
+
+        forecast.setCurrentForecast(getCurrentDetails(jsonData));
+
+        return forecast;
     }
 
     private Current getCurrentDetails(String jsonData) throws JSONException {
