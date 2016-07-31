@@ -1,10 +1,19 @@
 package com.brennanglynn.brennanweather.weather;
 
 public class Day {
+    private String mTimezone;
     private String mSummary;
     private String mIcon;
     private double mTemperatureMax;
     private long mTime;
+
+    public String getTimezone() {
+        return mTimezone;
+    }
+
+    public void setTimezone(String timezone) {
+        mTimezone = timezone;
+    }
 
     public String getSummary() {
         return mSummary;
