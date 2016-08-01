@@ -44,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
     private Forecast mForecast;
     private ColorWheel mColorWheel;
 
+    final double latitude = 43.6041;
+    final double longitude = -116.2296;
+
     @BindView(R.id.layoutBackground) RelativeLayout mLayoutBackground;
     @BindView(R.id.timeLabel) TextView mTimeLabel;
     @BindView(R.id.temperatureLabel) TextView mTemperatureLabel;
@@ -63,26 +66,19 @@ public class MainActivity extends AppCompatActivity {
         mColorWheel = new ColorWheel();
         mProgressBar.setVisibility(View.INVISIBLE);
 
-        final double latitude = 43.6041;
-        final double longitude = -116.2296;
-
-        mRefreshImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getForecast(latitude, longitude);
-
-                int[] color = mColorWheel.getColors();
-
-                GradientDrawable gd = new GradientDrawable(
-                        GradientDrawable.Orientation.TOP_BOTTOM,
-                        new int[]{color[0], color[1]});
-                gd.setCornerRadius(0f);
-
-
-                mLayoutBackground.setBackground(gd);
-            }
-        });
         getForecast(latitude, longitude);
+    }
+
+    private void setBackgroundGradient() {
+        int[] color = mColorWheel.getColors();
+
+        GradientDrawable gd = new GradientDrawable(
+                GradientDrawable.Orientation.TOP_BOTTOM,
+                new int[]{color[0], color[1]});
+        gd.setCornerRadius(0f);
+
+
+        mLayoutBackground.setBackground(gd);
     }
 
     private void getForecast(double latitude, double longitude) {
@@ -254,6 +250,13 @@ public class MainActivity extends AppCompatActivity {
     private void alertUserAboutError() {
         AlertDialogFragment dialog = new AlertDialogFragment();
         dialog.show(getFragmentManager(), "error_dialog");
+    }
+
+    @OnClick(R.id.refreshImageView)
+    public void refreshPage(View view) {
+        getForecast(latitude, longitude);
+        setBackgroundGradient();
+
     }
 
     @OnClick(R.id.dailyButton)
