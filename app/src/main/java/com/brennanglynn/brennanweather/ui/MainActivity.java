@@ -26,7 +26,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.util.Arrays;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -70,9 +69,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 getForecast(latitude, longitude);
 
+                int[] color = mColorWheel.getColors();
+
                 GradientDrawable gd = new GradientDrawable(
                         GradientDrawable.Orientation.TOP_BOTTOM,
-                        new int[]{0xFF616261, 0xFF131313});
+                        new int[]{color[0], color[1]});
                 gd.setCornerRadius(0f);
 
 
