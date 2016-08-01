@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Brennan Weather</string>
+    <string name="title_activity_daily_forecast">DailyForecastActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="no_daily_forecast_data">There is no data to display.</string>
 </resources>
