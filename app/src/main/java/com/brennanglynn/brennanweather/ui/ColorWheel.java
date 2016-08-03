@@ -19,7 +19,8 @@ public class ColorWheel {
             "#637a91", // dark gray [9]
             "#f092b0", // pink [10]
             "#b7c0c7", // light gray [11]
-            "#444444"  // medium gray [12]
+            "#444444", // medium gray [12]
+            "#f9d34c"  // yellow [13]
     };
 
     private String mColors2[] = {
@@ -28,14 +29,15 @@ public class ColorWheel {
             "#e0ab18", // mustard [2]
             "#637a91", // dark gray [3]
             "#f092b0", // pink [4]
-            "#b7c0c7",  // light gray [5]
+            "#b7c0c7", // light gray [5]
             "#c25975", // mauve [6]
             "#51b46d", // green [7]
             "#f9845b", // orange [8]
             "#838cc7", // lavender [9]
             "#7d669e", // purple [10]
             "#53bbb4", // aqua [11]
-            "#000000"  // black [12]
+            "#000000", // black [12]
+            "#f25019"  // orange [13]
     };
 
     public int[] getColors() {

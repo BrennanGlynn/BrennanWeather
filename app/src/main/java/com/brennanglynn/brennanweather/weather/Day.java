@@ -1,11 +1,32 @@
 package com.brennanglynn.brennanweather.weather;
 
-public class Day {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
+
+public class Day implements Parcelable {
     private String mTimezone;
     private String mSummary;
     private String mIcon;
     private double mTemperatureMax;
     private long mTime;
+
+    public Day() {}
+
+    public static final Creator<Day> CREATOR = new Creator<Day>() {
+        @Override
+        public Day createFromParcel(Parcel in) {
+            return new Day(in);
+        }
+
+        @Override
+        public Day[] newArray(int size) {
+            return new Day[size];
+        }
+    };
 
     public String getTimezone() {
         return mTimezone;
@@ -31,8 +52,8 @@ public class Day {
         mIcon = icon;
     }
 
-    public double getTemperatureMax() {
-        return mTemperatureMax;
+    public int getTemperatureMax() {
+        return (int)Math.round(mTemperatureMax);
     }
 
     public void setTemperatureMax(double temperatureMax) {
@@ -46,4 +67,39 @@ public class Day {
     public void setTime(long time) {
         mTime = time;
     }
+
+    public int getIconId() {
+        return Forecast.getIconId(mIcon);
+    }
+
+    public String getDayOfTheWeek() {
+        SimpleDateFormat formatter = new SimpleDateFormat("EEEE");
+        formatter.setTimeZone(TimeZone.getTimeZone(mTimezone));
+        Date dateTime = new Date(mTime * 1000);
+        return formatter.format(dateTime);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(mTime);
+        dest.writeString(mIcon);
+        dest.writeString(mSummary);
+        dest.writeString(mTimezone);
+        dest.writeDouble(mTemperatureMax);
+    }
+
+    protected Day(Parcel in) {
+        mTime = in.readLong();
+        mIcon = in.readString();
+        mSummary = in.readString();
+        mTimezone = in.readString();
+        mTemperatureMax = in.readDouble();
+    }
+
 }
