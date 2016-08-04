@@ -5,9 +5,7 @@
     android:layout_height="wrap_content"
     tools:background="@drawable/bg_gradient"
     android:paddingTop="8dp"
-    android:paddingBottom="8dp"
-    android:paddingLeft="24dp"
-    android:paddingRight="24dp">
+    android:paddingBottom="8dp">
 
     <TextView
         android:layout_width="80dp"
