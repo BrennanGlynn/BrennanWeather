@@ -18,7 +18,7 @@ public class DayAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return mDays.length;
+        return 7; //mDays.length;
     }
 
     @Override
@@ -50,7 +50,7 @@ public class DayAdapter extends BaseAdapter {
         Day day = mDays[position];
 
         holder.iconImageView.setImageResource(day.getIconId());
-        holder.temperatureLabel.setText(day.getTemperatureMax());
+        holder.temperatureLabel.setText(String.format("%d", day.getTemperatureMax()));
 
         if(position == 0){
             holder.dayLabel.setText(R.string.today);
