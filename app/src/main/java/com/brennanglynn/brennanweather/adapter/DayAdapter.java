@@ -16,12 +16,6 @@ public class DayAdapter extends BaseAdapter {
     private Context mContext;
     private Day[] mDays;
 
-    public DayAdapter(Context context, Day[] days) {
-        mContext = context;
-        mDays = new Day[days.length];
-        mDays = days;
-    }
-
     @Override
     public int getCount() {
         return mDays.length;
@@ -56,14 +50,20 @@ public class DayAdapter extends BaseAdapter {
         Day day = mDays[position];
 
         holder.iconImageView.setImageResource(day.getIconId());
-        holder.temperatureLabel.setText(day.getTemperatureMax() + "");
+        holder.temperatureLabel.setText(day.getTemperatureMax());
 
         if(position == 0){
-            holder.dayLabel.setText("Today");
+            holder.dayLabel.setText(R.string.today);
         } else {
             holder.dayLabel.setText(day.getDayOfTheWeek());
         }
         return convertView;
+    }
+
+    public DayAdapter(Context context, Day[] days) {
+        mContext = context;
+        mDays = new Day[days.length];
+        mDays = days;
     }
 
     private static class ViewHolder {
