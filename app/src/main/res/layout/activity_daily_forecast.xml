@@ -7,7 +7,8 @@
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
                 android:paddingTop="16dp"
-                android:paddingBottom="16dp">
+                android:paddingBottom="16dp"
+    android:id="@+id/relativeLayout">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,

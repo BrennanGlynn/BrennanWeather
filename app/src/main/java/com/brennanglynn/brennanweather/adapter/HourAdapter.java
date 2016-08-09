@@ -1,24 +1,20 @@
 package com.brennanglynn.brennanweather.adapter;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.brennanglynn.brennanweather.R;
 import com.brennanglynn.brennanweather.weather.Hour;
 
 public class HourAdapter extends RecyclerView.Adapter<HourAdapter.HourViewHolder> {
 
-    private Context mContext;
     private Hour[] mHours;
 
-    public HourAdapter(Context context, Hour[] hours) {
-        mContext = context;
+    public HourAdapter(Hour[] hours) {
         mHours = hours;
     }
 
@@ -41,7 +37,7 @@ public class HourAdapter extends RecyclerView.Adapter<HourAdapter.HourViewHolder
         return mHours.length;
     }
 
-    public class HourViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class HourViewHolder extends RecyclerView.ViewHolder {
         public TextView timeLabel;
         public ImageView iconImageView;
         public TextView temperatureLabel;
@@ -62,19 +58,6 @@ public class HourAdapter extends RecyclerView.Adapter<HourAdapter.HourViewHolder
             temperatureLabel.setText(hour.getTemperature() + "");
             summaryLabel.setText(hour.getSummary());
 
-        }
-
-
-        @Override
-        public void onClick(View view) {
-            String time = timeLabel.getText().toString();
-            String temperature = temperatureLabel.getText().toString();
-            String summary = summaryLabel.getText().toString();
-            String message = String.format("At %s it will be %s and %s",
-                    time,
-                    temperature,
-                    summary);
-            Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show();
         }
     }
 }

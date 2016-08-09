@@ -42,9 +42,11 @@ public class MainActivity extends AppCompatActivity {
     public static final String TAG = MainActivity.class.getSimpleName();
     public static final String DAILY_FORECAST = "DAILY_FORECAST";
     public static final String HOURLY_FORECAST = "HOURLY_FORECAST";
+    public static final String BG_GRADIENT = "BG_GRADIENT";
 
     private Forecast mForecast;
     private ColorWheel mColorWheel;
+    private int[] mBackground;
 
     final double latitude = 43.6041;
     final double longitude = -116.2296;
@@ -72,13 +74,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setBackgroundGradient() {
-        int[] color = mColorWheel.getColors();
+        mBackground = mColorWheel.getColors();
 
         GradientDrawable gd = new GradientDrawable(
                 GradientDrawable.Orientation.TOP_BOTTOM,
-                new int[]{color[0], color[1]});
+                new int[]{mBackground[0], mBackground[1]});
         gd.setCornerRadius(0f);
-
 
         mLayoutBackground.setBackground(gd);
     }
@@ -272,6 +273,7 @@ public class MainActivity extends AppCompatActivity {
     public void startHourlyActivity(View view) {
         Intent intent = new Intent(this, HourlyForecastActivity.class);
         intent.putExtra(HOURLY_FORECAST, mForecast.getHourlyForecast());
+        intent.putExtra(BG_GRADIENT, mBackground);
         startActivity(intent);
     }
 }

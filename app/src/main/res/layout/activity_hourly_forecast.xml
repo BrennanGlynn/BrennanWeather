@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_gradient"
     tools:context="com.brennanglynn.brennanweather.ui.HourlyForecastActivity"
-    android:padding="24dp">
+    android:padding="24dp"
+    android:id="@+id/relativeLayout">
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
