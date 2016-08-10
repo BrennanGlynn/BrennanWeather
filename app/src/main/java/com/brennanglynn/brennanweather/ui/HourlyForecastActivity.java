@@ -51,9 +51,6 @@ public class HourlyForecastActivity extends AppCompatActivity {
         gd.setCornerRadius(0f);
 
         mLayoutBackground.setBackground(gd);
-
-
-
     }
 
 }

@@ -266,6 +266,7 @@ public class MainActivity extends AppCompatActivity {
     public void startDailyActivity(View view) {
         Intent intent = new Intent(this, DailyForecastActivity.class);
         intent.putExtra(DAILY_FORECAST, mForecast.getDailyForecast());
+        intent.putExtra(BG_GRADIENT, mBackground);
         startActivity(intent);
     }
 
