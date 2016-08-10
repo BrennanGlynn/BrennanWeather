@@ -266,7 +266,9 @@ public class MainActivity extends AppCompatActivity {
     public void startDailyActivity(View view) {
         Intent intent = new Intent(this, DailyForecastActivity.class);
         intent.putExtra(DAILY_FORECAST, mForecast.getDailyForecast());
-        intent.putExtra(BG_GRADIENT, mBackground);
+        if (mBackground != null) {
+            intent.putExtra(BG_GRADIENT, mBackground);
+        }
         startActivity(intent);
     }
 
@@ -274,7 +276,9 @@ public class MainActivity extends AppCompatActivity {
     public void startHourlyActivity(View view) {
         Intent intent = new Intent(this, HourlyForecastActivity.class);
         intent.putExtra(HOURLY_FORECAST, mForecast.getHourlyForecast());
-        intent.putExtra(BG_GRADIENT, mBackground);
+        if (mBackground != null) {
+            intent.putExtra(BG_GRADIENT, mBackground);
+        }
         startActivity(intent);
     }
 }
