@@ -1,5 +1,6 @@
 package com.brennanglynn.brennanweather.ui;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Parcelable;
@@ -19,7 +20,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class HourlyForecastActivity extends AppCompatActivity {
+public class HourlyForecastActivity extends Activity {
 
     private Hour[] mHours;
 
