@@ -1,5 +1,6 @@
 package com.brennanglynn.brennanweather.ui;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Parcelable;
@@ -19,7 +20,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class HourlyForecastActivity extends AppCompatActivity {
+public class HourlyForecastActivity extends Activity {
 
     private Hour[] mHours;
 
@@ -43,14 +44,16 @@ public class HourlyForecastActivity extends AppCompatActivity {
 
         mRecyclerView.setHasFixedSize(true);
 
-        int[] mBackground = intent.getIntArrayExtra(MainActivity.BG_GRADIENT);
+        if (intent.hasExtra(MainActivity.BG_GRADIENT)) {
+            int[] mBackground = intent.getIntArrayExtra(MainActivity.BG_GRADIENT);
 
-        GradientDrawable gd = new GradientDrawable(
-                GradientDrawable.Orientation.TOP_BOTTOM,
-                new int[]{mBackground[0], mBackground[1]});
-        gd.setCornerRadius(0f);
+            GradientDrawable gd = new GradientDrawable(
+                    GradientDrawable.Orientation.TOP_BOTTOM,
+                    new int[]{mBackground[0], mBackground[1]});
+            gd.setCornerRadius(0f);
 
-        mLayoutBackground.setBackground(gd);
+            mLayoutBackground.setBackground(gd);
+        }
     }
 
 }

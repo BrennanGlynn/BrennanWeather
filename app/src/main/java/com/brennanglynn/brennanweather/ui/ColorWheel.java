@@ -19,8 +19,15 @@ public class ColorWheel {
             "#637a91", // dark gray [9]
             "#f092b0", // pink [10]
             "#b7c0c7", // light gray [11]
-            "#444444", // medium gray [12]
-            "#f9d34c"  // yellow [13]
+            "#3a7bd5", // Reef [12]
+            "#f9d34c", // yellow [13]
+            "#B3FFAB", // Neon Life [14]
+            "#AAFFA9", // Teal Love [15]
+            "#e74c3c", // Red Mist [16]
+            "#ADD100", // Parklife [17]
+            "#FBD3E9", // Cherryblossoms [18]
+            "#53346D", // Shadow Night [19]
+            "#8CA6DB"  // Dirty Fog [20]
     };
 
     private String mColors2[] = {
@@ -36,8 +43,15 @@ public class ColorWheel {
             "#838cc7", // lavender [9]
             "#7d669e", // purple [10]
             "#53bbb4", // aqua [11]
-            "#000000", // black [12]
-            "#f25019"  // orange [13]
+            "#00d2ff", // Reef [12]
+            "#f25019", // orange [13]
+            "#12FFF7", // Neon Life [14]
+            "#11FFBD", // Teal Love [15]
+            "#000000", // Red Mist [16]
+            "#7B920A", // Parklife [17]
+            "#BB377D", // Cherryblossoms [18]
+            "#000000", // Shadow Night [19]
+            "#B993DC"  // Dirty Fog [20]
     };
 
     public int[] getColors() {
